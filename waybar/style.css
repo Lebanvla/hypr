@@ -1,0 +1,145 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Fira Code", "Font Awesome 5 Free", sans-serif;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 3px solid #00ffcc;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+    border-bottom: 3px solid #eb4d4b;
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock, #battery, #cpu, #memory, #temperature, #network, #pulseaudio, #tray, #mode, #idle_inhibitor, #custom-media {
+    padding: 0 10px;
+    margin: 0 5px;
+    color: #ffffff;
+}
+
+#clock {
+    background-color: transparent;
+    color: #00ffcc;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+}
+
+#battery {
+    color: #ffffff;
+}
+
+#battery.charging {
+    color: #26A65B;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: #f53c3c;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background: transparent;
+    color: #ff00ff;
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+#memory {
+    background: transparent;
+    color: #ff9900;
+    text-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
+}
+
+#temperature {
+    background: transparent;
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+#temperature.critical {
+    background: #eb4d4b;
+}
+
+#network {
+    background: transparent;
+    color: #0099ff;
+    text-shadow: 0 0 5px rgba(0, 153, 255, 0.5);
+}
+
+#network.disconnected {
+    background: #f53c3c;
+}
+
+#pulseaudio {
+    background: transparent;
+    color: #ff00ff;
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+}
+
+#pulseaudio.muted {
+    background: #90b1b1;
+    color: #2a5c45;
+}
+
+#tray {
+    background-color: #2980b9;
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+#custom-media {
+    background: #66cc99;
+    color: #2a5c45;
+    min-width: 100px;
+}

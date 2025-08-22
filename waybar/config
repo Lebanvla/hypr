@@ -1,0 +1,94 @@
+{
+  "position": "top",
+  "layer": "top",
+  "height": 30,
+  "spacing": 5,
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "custom/media"],
+  "modules-center": ["clock"],
+  "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "tray"],
+  
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50
+  },
+  
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "active-only": false
+  },
+  
+  "clock": {
+    "format": " {:%H:%M:%S}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 1
+  },
+  
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2,
+    "tooltip": false
+  },
+  
+  "memory": {
+    "format": " {}%",
+    "interval": 5,
+    "tooltip": false
+  },
+  
+  "temperature": {
+    "format": " {temperatureC}°C",
+    "critical-threshold": 80,
+    "interval": 5
+  },
+  
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ifname}",
+    "format-disconnected": " Disconnected",
+    "interval": 5
+  },
+  
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+  
+  "custom/media": {
+    "format": " {}",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "exec": "playerctl metadata --format '{{ artist }} - {{ title }}'",
+    "escape": true
+  }
+}
